@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:noted_flutter/models/note_models.dart';
 
 class createnotes extends StatefulWidget {
-  const createnotes({super.key});
+  const createnotes({super.key, required this.onNoteCreated});
+  final Function(Note) onNoteCreated;
 
   @override
   State<createnotes> createState() => _createnotesState();
@@ -36,6 +38,10 @@ class _createnotesState extends State<createnotes> {
 
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.save),
       ),
     );
   }

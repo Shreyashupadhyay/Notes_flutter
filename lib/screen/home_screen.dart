@@ -28,6 +28,15 @@ class _HomescreenState extends State<Homescreen> {
                   children: [
                     Text(
                       notes[index].title,
+                      style: TextStyle(fontSize: 20),
+                    ),
+
+                    SizedBox(height: 18,),
+                    Text(
+                      notes[index].title,
+                      style: TextStyle(fontSize: 20),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     )
                   ],
                 ),
@@ -37,7 +46,7 @@ class _HomescreenState extends State<Homescreen> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const createnotes()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> createnotes(onNoteCreated:onNoteCreated,)));
           
         },
         child: const Icon(Icons.add),
