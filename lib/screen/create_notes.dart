@@ -40,7 +40,20 @@ class _createnotesState extends State<createnotes> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          if(titleControler.text.isEmpty){
+            return;
+          }
+          if(bodyController.text.isEmpty){
+            return;
+          }
+          final note = Note(
+              title: titleControler.text,
+              body: bodyController.text
+          );
+          widget.onNoteCreated(note);
+          Navigator.of(context).pop();
+        },
         child: Icon(Icons.save),
       ),
     );
